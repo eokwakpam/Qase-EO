@@ -1,5 +1,4 @@
-name: Run tests
-
+name: Qase Tests
 on:
   workflow_dispatch:
     inputs:
@@ -16,31 +15,22 @@ on:
         description: 'Qase Run ID'
         required: true
       qase_run_complete:
-        description: 'Complete Qase Run'
+        description: 'Qase Run autocomplete'
         required: true
-
 env:
   QASE_API_BASE_URL: ${{ inputs.qase_api_base_url }}
-  QASE_REPORT: ${{ inputs.qase_report }}
-  QASE_PROJECT_CODE: ${{ inputs.qase_project_code }}
-  QASE_RUN_ID: ${{ inputs.qase_run_id }}
-  QASE_RUN_COMPLETE: ${{ inputs.qase_run_complete }}
-  QASE_API_TOKEN: ${{ secrets.QASE_API_TOKEN }}
+  QASE_TESTOPS_PROJECT: ${{ inputs.qase_project_code }}
+  QASE_TESTOPS_RUN_ID: ${{ inputs.qase_run_id }}
+  QASE_TESTOPS_RUN_COMPLETE: true
+  QASE_API_TOKEN: ${{ secrets.QASE_TESTOPS_API_TOKEN }}
 
 jobs:
-  build-js:
+  test:
+    timeout-minutes: 60
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node-version: [16.x]
     steps:
-      - uses: qase-tms/qase-link-run@main
-        env:
-          QASE_API_TOKEN: ${{ env.QASE_API_TOKEN }}
-      - uses: actions/checkout@v3
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v3
-        with:
-          node-version: ${{ matrix.node-version }}
-      - run: npm ci
-      - run: npm test
+    - uses: cskmnrpt/qase-link-run@v2
+      env:
+        QASE_API_TOKEN: ${{ env.QASE_API_TOKEN }}
+    - uses: actions/checkout@v4
+    - uses: actions/setup-node@v4
