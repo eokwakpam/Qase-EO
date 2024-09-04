@@ -1,4 +1,4 @@
-name: Main Yml
+name: Qase Tests
 on:
   workflow_dispatch:
     inputs:
@@ -29,8 +29,11 @@ jobs:
     timeout-minutes: 60
     runs-on: ubuntu-latest
     steps:
-    - uses: cskmnrpt/qase-link-run@v2
-      env:
-        QASE_API_TOKEN: ${{ env.QASE_API_TOKEN }}
     - uses: actions/checkout@v4
     - uses: actions/setup-node@v4
+      with:
+        node-version: '16' # Specify the Node.js version you need
+    - run: npm install -D @playwright/test playwright-qase-reporter
+    - run: npx playwright test
+      env:
+        QASE_API_TOKEN: ${{ env.QASE_API_TOKEN }}
