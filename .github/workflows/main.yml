@@ -33,7 +33,7 @@ jobs:
     - uses: actions/setup-node@v4
       with:
         node-version: '16' # Specify the Node.js version you need
-    - run: npm install
-    - run: npx test
       env:
         QASE_API_TOKEN: ${{ env.QASE_API_TOKEN }}
+    - run: npm install
+    - run: npx test
