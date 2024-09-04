@@ -35,4 +35,4 @@ jobs:
       env:
         QASE_API_TOKEN: ${{ env.QASE_API_TOKEN }}
     - run: npm install
-    - run: npx test
+    - run: npm test
