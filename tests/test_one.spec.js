@@ -8,7 +8,7 @@ test.describe('Test suite', () => {
   });
 
   test('Test with annotated fields', () => {
-    qase.fields({ 'severity': 'high', 'priority': 'medium' });
+    qase.fields({ 'severity': 'critical', 'priority': 'medium' });
     expect(true).toBe(true);
   });
 
