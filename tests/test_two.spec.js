@@ -3,13 +3,13 @@ const { test, expect } = require('@playwright/test');
 
 test.describe('Test suite', () => {
   test('Simple test', () => {
-    qase.id(1);
+    qase.id(396);
     qase.title('Example of simple test');
     expect(true).toBe(true);
   });
 
   test('Test with annotated fields', () => {
-    qase.id(2);
+    qase.id(398);
     qase.fields({ 'severity': 'high', 'priority': 'medium' });
     expect(true).toBe(true);
   });
