@@ -1,5 +1,5 @@
-import { test, expect } from '@playwright/test';
 import { qase } from 'playwright-qase-reporter';
+const { test, expect } = require('@playwright/test');
 
 test.describe('Test suite', () => {
   // This test will fail intentionally, with a screenshot captured on failure
