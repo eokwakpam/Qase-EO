@@ -26,6 +26,8 @@ const config = {
       },
     ],
   ],
+  testDir: './tests', // Directory where your tests are located
+  testMatch: ['!tests/test_three.spec.js'], // Exclude test_three.spec.js
 };
 
 module.exports = config;
