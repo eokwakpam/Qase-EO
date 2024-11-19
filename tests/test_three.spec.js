@@ -4,7 +4,7 @@ const { test, expect } = require('@playwright/test');
 test.describe('Test suite with failing test cases', () => {
   
   test('Simplified test that passes', () => {
-    qase.title('This test will pass');
+    qase.title('This test will pass well');
     expect(true).toBe(true); // Pass
   });
 
