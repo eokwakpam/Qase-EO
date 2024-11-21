@@ -31,7 +31,7 @@ jobs:
     steps:
     - uses: actions/checkout@v4
     - uses: actions/setup-node@v4
-    - uses: cskmnrpt/qase-link-run@v2
+    - uses: qase-tms/qase-link-run@main
       env:
         QASE_API_TOKEN: ${{ env.QASE_API_TOKEN }}
     - run: npm install
