@@ -24,4 +24,4 @@ export QASE_TESTOPS_RUN_ID=$run_id
 
 echo "QASE_TESTOPS_RUN_ID=$run_id" >> $GITHUB_ENV
 
-newman run example_collection.json -r qase,cli
+newman run yury_collection.json -r qase,cli
