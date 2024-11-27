@@ -1,9 +1,12 @@
 name: Run Newman Tests and Report to Qase
 
 on:
+  push:
+    branches:
+      - 'newman'  # This triggers the workflow when there is a push to the 'newman' branch
   schedule:
-    - cron: "50 5 * * 1-5"
-  workflow_dispatch:
+    - cron: "50 5 * * 1-5"  # Runs the workflow on weekdays at 5:50 AM UTC
+  workflow_dispatch:  # Allows manual triggering of the workflow
 
 env:
   QASE_TESTOPS_PROJECT: ${{ secrets.QASE_NEWMAN_PRJ }}
